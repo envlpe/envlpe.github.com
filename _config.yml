@@ -1,0 +1,3 @@
+exclude: SourceCSS
+auto: true
+pygment:true

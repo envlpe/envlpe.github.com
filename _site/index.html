@@ -1,0 +1,158 @@
+<head><title>envl.pe - Welcome to the Envlpe </title></head>
+<div class="container">
+	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+<link href='http://fonts.googleapis.com/css?family=Quicksand:400,300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/css/main.css" type="text/css" />
+<div class="header">
+	<div class="row">
+		<div class="span5 maintitle">
+			<a href="/">envl.pe</a>
+		</div>
+		<div class="span5 subtitle">a place for experimentation and then writing about it all</div>
+	</div>
+	<div class=menubar>
+		Home | About | Archive
+	</div>
+</div>
+<br>
+
+	<br>
+	
+	
+	
+<article>
+  <header>
+    <h1 class='entry-title'>
+      <a href='/2011/11/18/setting-up-jekyll-with-github.html'>GitHub &amp; Jekyll</a>
+    </h1>
+    <h2 class="entry-subtitle">Setting Up Completely Flexible Free Web Hosting</h2>
+  </header>
+  
+  <section class='body'>
+      <div class="row">
+	<div class="span5">
+		<img src="images/jekyllcat.jpg" alt="The Jekyll Cat"  style="margin-top: 60px;margin-bottom: auto;"/><br>
+	</div>
+	<div class="span11" >
+		<p class="entry-intro">
+			Ever wish you could have a cool website? Not only one that looked cool, but was easy to manage, didn't add harsh formatting limitations, and was FREE?
+		</p>
+		<p class="entry-intro">Look  at this site. Looks pretty good, right? And it has all of those benefits. Its easy to manage. I can do whatever I want with regards to formatting. And there is zero required cost to make it. The engine that runs it all is called Jekyll and its hosted with GitHub.</p>
+		<p class="entry-intro">Those two terms may or may not mean anything to you, so let me do a quick definition. GitHub is an online resource which implements the version control system known as Git. GitHub hosts all kinds of projects: developers work with source code on there, writers post their writing projects, and so forth. If that sounds complicated, don't worry, you don't really need to know any details about it.</p>
+		<p class="entry-intro">Jekyll is a web engine that normally generates static webpages from templates that you create. These templates can do whatever you want.</p>
+	</div>
+</div>
+
+	<p class="entry-heading">Why I Am Getting Into This</p>
+<div class="row">
+	<div class="span16">
+		<p>I stopped hosting my own websites a long time ago when I got tired of writing my own blogging software. That was fun when I was working at Microsoft and I needed some projects to teach me C#. But when blogging got a bit tiring for me, I decided to let someone else manage the various steps. First it was a move to Community Server and then Graffiti. Then there were some security issues and it took me a long time to update so it was time to move to a more complete hosting solution. My main site is now hosted on Squarespace which is fantastic.</p>
+		<p>The reason I love Squarespace is that it is so freaking easy to setup. However its really easy to hit the limits of what Squarespace can do. The mythological version 6 seems to promise a fix to all of those issues, but they keep promising its release and keep stumbling over the dates. So when I wanted to create another site for extra projects, I decided against Squarespace. I wanted something that gave me complete flexibility, but not something which required maintenance to its engine. My needs to are very simple, but simple is not something most engines can handle.</p>
+		
+		<p>When I found out about hosting Jekyll on GitHub a while ago, I thought that might be the answer, but at the time I didn&rsquo;t have an idea for a site yet. Everything came together when I bought the envl.pe domain name. But how do you get Jekyll up and running. I read a lot of posts describing all the nitty gritty details but they all seemed to assume one thing: an existing knowledge of Git. I know a lot of things, but I just don&rsquo;t get Git.</p>
+		
+		<p>But the benefits made the pain of learning more well worth it. I could have a completely customizable blog site (or any kind of web site) with extensive built in version control for absolutely zero cost. I am sure there are other benefits, but do they really matter? That one alone makes it worth it.</p>
+		
+		<p>Somehow I managed to get everything running and posted and this article is an overview of the entire procedure. If anything doesn&rsquo;t make sense, let me know on Twitter where I am <a href="http://twitter.com/envlpe">@envlpe</a>.</p>
+
+		<p>I guess there are two possible starting points for this: setup Jekyll or setup GitHub. Either way works and I chose going the GitHub route first but looking back I really should have done Jekyll first so that's they way I'll explain it.</p>
+	</div>
+</div>
+<p class="entry-heading">Installing Jekyll</p>
+<img class="entry-largeimage" src="images/SS-envlpe-structure.jpg" alt="Directory structure for envlpe" />
+
+<div class="row">
+		<div class="span8">
+		<p>In the image above, you can see my site structure on my local machine. That should give you the first clue that <a href="http://jekyllrb.com">Jekyll</a> is a little different than Wordpress or Squarespace. You can see templates and layouts, along with some regular HTML, and this post as a separate file. Everything is done locally. You create the templates, the content, everything locally. You generate the site locally and then you publish the site to where ever its really going to live (in my case, GitHub)</p>
+		<p>The first step, obviously, is to install Jekyll. Rather than retyping the instructions, just visit <a href="https://github.com/mojombo/jekyll/wiki/install">this page on the Jekyll site</a> and come back here when you are done.</p>
+		<p>With the basic install done, go to a folder where you want to develop your site and run: <code><strong>jekyll --server --auto</strong></code>. That command tells Jekyll to run a server using the current directory as its source, to use the default port of 4000, and to auto-generate everything whenever you make a change to any file.</p>
+		<p>When you open a browser window and navigate to <strong>http://localhost:4000</strong> you should see either nothing, or an error about not being able to look at the root. Thats good.</p>
+		<p> Next, create an index.html document in the root of that directory with just the text: <code><strong>Hello, Jekyll!</strong></code>.</p>
+		<p> Refresh the browser and you should see your Hello, Jekyll text. Now you know that Jekyll is working.</p> 
+		</div>
+		<div class="span8">
+		<p>Now let's get just a taste of what Jekyll will be able to do for us. Create a new subdirectory called <code><strong>_layouts</strong></code>. Add a file called <code><strong>main.html</strong></code> with the following contents:
+			<pre>
+&lt;head&gt;&lt;title&gt;&#123;&#123; page.title &#125;&#125;&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&#123;&#123;content&#125;&#125;
+&lt;/body&gt;</pre>
+		</p>
+		<p>Edit your index.html file to look like this:
+		<pre>
+---
+title: My first jekyll page
+layout: main
+---
+Hello, Jekyll</pre>
+		</p>
+		<p>Refresh your browser page. Oooo, pretty cool, right? </p>
+		<p>The index.html page now has what is referred to as <strong>YAML Front Matter</strong> defining a title and a layout. That layout is assumed to be in the _layouts directory. The layout is included first and the content variable is replaced by whatever else was in the calling file.</p>
+		<p> OK, lets move on to the GitHub part.</p>
+	</div>
+</div>
+<p class="entry-heading">Setting Up GitHub</p>
+<img src="images/SS-envlpe-github.jpg" alt="Basic GitHub View" class="entry-largeimage" />
+<div class="row">
+	<div class="span8">
+		<p>Go to <a href="http://github.com">GitHub.com</a> and sign up for an account. The free account will be just fine though I am sure they won't have a problem accepting your money should you wish to have a paid account. </p>
+		<p>Next, create what is called a repository. The name of this repository is pretty important. It should be whatever your account name is followed by <code><strong>.github.com</strong></code>. So for my site, my account name is <code><strong>envlpe</strong></code> and the first repository I created was <code><strong>envlpe.github.com</strong></code></p>
+		<p>Hopefully you already have Git installed. If so, your next steps are listed on the page that comes up on the GitHub site. Basically here is what your are going to do:
+		<pre>
+git config --global user.name [Your Name Here]
+git config --global user.email [Your email Here]
+
+cd [the directory you created above]
+git init
+git add .
+git commit -m '[some cute comment]'
+git remote add origin git@github:[Your Account Name]/[Your Account Name].github.com.git
+git push -u origin master</pre>
+		</p>
+	</div>
+	<div class="span8">
+		<p>If Git isn't installed or you are having some problems with it, your best bet is to open another tab or window and refer to the Git page at <a href="http://git-scm.com">http://git-scm</a>. This will tell you everything you need to know to get it working.</p>
+		<p>If you are on a Mac and this is your first interaction with Git, you should definitely download the Mac app from the GitHub website. It will make your life much easier. I have seen plenty of complaints about it online, but for my purposes it seems to be perfect. Just remember that command-enter will accept your commit comment, and command-S will sync it up to GitHub.</p>
+		<p>At this point you should be able to go to <strong>http://[your account name].github.com</strong> and see your Hello, Jekyll website.</p>
+	</div>
+</div>
+<p class="entry-heading">Summary &amp; Next Steps</p>
+<div class="row">
+	<div class="span16">
+		<p>Now you can continue to develop your site locally on your machine. It doesn't make sense to push it up to GitHub until you have a site you are happy with so get working. Of course I have only shown you the very basics of a Jekyll site. There is a lot more to it. For now, your best bet is to refer to the <a	href="https://github.com/mojombo/jekyll/wiki/_pages">Jekyll documentation</a>. Also <a href="https://github.com/mojombo/jekyll/wiki/Sites">refer to the hundreds of other sites</a> out there using this configuration. The first link for each is the web site. The second link for each site is the source code hosted on GitHub.</p>
+		<p>Soon I'll post some more about what I have learned with regards to creating an interesting site using Jekyll. I hope to see you here to read that. If you have any questions or comments, ping me on twitter where I go by the name <a href="http://twitter.com/envlpe">@envlpe</a>.
+	</div>
+</div>
+
+    <hr>
+    <p><strong>Posted on November 18, 2011</strong></p>
+
+  </section>
+  
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'envlpe'; // required: replace example with your forum shortname
+  
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</article>
+
+
+
+
+
+	
+	<div class="footer">
+This is the footer
+</div>
+	
+</div>

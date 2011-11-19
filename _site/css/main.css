@@ -1,0 +1,16 @@
+body{margin-left:20px;font:16px Palatino,Georgia,"Times New Roman",Times,serif;}
+a{color:#b00000;}
+a:hover{color:#b00000;}
+p{font-size:15px;line-height:1.5em;color:black;}
+p strong{color:#660000;letter-spacing:.08em;}
+.header{margin-top:20px;margin-bottom:60px;}
+.footer{margin-top:200px;}
+.maintitle{font-family:'Quicksand',sans-serif;font-weight:300;font-size:48px;color:#b00000;text-decoration:none;}
+.maintitle a:hover{text-decoration:none;}
+.subtitle{font-family:'Quicksand',sans-serif;font-weight:400;font-size:18px;position:relative;bottom:-5px;}
+.entry-title{color:black;font-size:60px;}
+.entry-title a:hover{text-decoration:none;}
+.entry-subtitle{color:black;font-size:30px;margin-bottom:40px;color:#404040;}
+.entry-intro{font-size:20px;line-height:26px;margin-bottom:22px;color:#404040;}
+.entry-heading{font-size:20px;color:black;letter-spacing:2px;text-transform:uppercase;border-bottom-color:#b00000;border-bottom-style:solid;border-bottom-width:5px;margin-bottom:20px;margin-top:20px;float:left;}
+.entry-largeimage{width:940px;margin-top:5px;margin-bottom:20px;margin-left:auto;margin-right:auto;}
