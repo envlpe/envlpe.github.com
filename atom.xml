@@ -24,7 +24,7 @@ layout: nil
       <name>ENVLPE</name>
       <uri>http://envl.pe/</uri>
     </author>
-    <content type="html">{% if post.excerpt %}{{post.excerpt|xml_escape}}{%else%}{{ post.content | xml_escape }}{{'<br/><a href="">Read More...</a>'|xml_escape}}{%endif%}</content>
+    <content type="html">{% if post.excerpt %}{{post.excerpt|xml_escape}}{{'<br/><a href="">Read More...</a>'|xml_escape}}{%else%}{{ post.content | xml_escape }}{%endif%}</content>
   </entry>
   {% endfor %}
  
