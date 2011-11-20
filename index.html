@@ -1,8 +1,7 @@
 ---
 layout: FrontPageLayout
 ---
-{% for thispost in site.posts limit:1 %}
+{% assign thispost = site.posts[0] %}
 {%include PostInclude.html %}
-{% endfor %}
 
 
