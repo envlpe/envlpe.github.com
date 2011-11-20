@@ -5,14 +5,14 @@
 <a href='{{thispost.url}}'>{% if thispost%}{{ thispost.title }}{%else%}{{page.title}}{%endif%}</a>
 </h1>
 <h2 class="entry-subtitle">{% if thispost%}{{ thispost.subtitle }}{%else%}{{page.subtitle}}{%endif%}</h2>
-
+<h3 class="entry-date"></h3>
 {% if thispost.content %}
 {{thispost.content}}
 {%else%}
 {{content}}
 {%endif%}
 
-<p><strong>Posted on {{ post.date | date:"%B %d, %Y" }}</strong></p>
+<p><strong>Posted on {%if thispost%}{{ thispost.date | date:"%B %d, %Y" }}{%else%}{{ page.date | date:"%B %d, %Y" }}{%endif%}</strong></p>
 
 
     
