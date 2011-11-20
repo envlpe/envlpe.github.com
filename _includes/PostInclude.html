@@ -1,0 +1,20 @@
+
+
+
+<h1 class='entry-title'>
+<a href='{{thispost.url}}'>{% if thispost%}{{ thispost.title }}{%else%}{{page.title}}{%endif%}</a>
+</h1>
+<h2 class="entry-subtitle">{% if thispost%}{{ thispost.subtitle }}{%else%}{{page.subtitle}}{%endif%}</h2>
+
+{% if thispost.content %}
+{{thispost.content}}
+{%else%}
+{{content}}
+{%endif%}
+
+<p><strong>Posted on {{ post.date | date:"%B %d, %Y" }}</strong></p>
+
+
+    
+{% include DisqusInclude.html %}
+

@@ -1,5 +1,9 @@
 <head>
-	<title>envl.pe - {{ page.title }} </title>
+	<title>envl.pe {% if page.title %} - {{page.title}} {%endif%}</title>
+	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/main.css" type="text/css" />
+	<link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+	
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
@@ -15,12 +19,14 @@
 </script>
 </head>
 <div class="container">
-	{% include header.html %}
+
+
+	{% include HeaderInclude.html %}
 	<br>
 	
 	
 	{{content}}
 	
-	{% include footer.html %}
+	{% include FooterInclude.html %}
 	
 </div>

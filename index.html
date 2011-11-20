@@ -1,9 +1,8 @@
 ---
-layout: front
+layout: FrontPageLayout
 ---
-
-{% for post in site.posts limit:1 %}
-{% include post.html %}
+{% for thispost in site.posts limit:1 %}
+{%include PostInclude.html %}
 {% endfor %}
 
 
