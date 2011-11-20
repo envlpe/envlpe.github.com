@@ -1,0 +1,77 @@
+---
+title: Jekyll Layouts
+subtitle: Figuring out how to organize your information
+excerpt: Learn about some of the ways to organize your blogs
+layout: IndividualPostLayout
+published: false
+tags: 
+    - Jekyll
+---
+
+<div class="row">
+	<div class="span5">
+		<img src="/images/jekyllcat.jpg" alt="The Jekyll Cat"  style="margin-top: 60px;margin-bottom: auto;"/><br>
+	</div>
+	<div class="span11" >
+		<p class="entry-intro">
+			When you get started using Jekyll, you quickly see how powerful it can be. But soon after getting started, you realise that <strong>the templates can get REALLY complicated</strong>. OK, maybe you don't think that, but I certainly had a hard time with it.
+		</p>
+		<p class="entry-intro">I wanted everything on my site to have the same look and feel. But at the same time, I didn't want to have to keep creating that look and feel with every new page. I wanted my templates to work for me, rather than working hard to keep the templates in line.</p>
+		<p class="entry-intro">One of the amazing things about a Jekyll site is that there are a lot of other samples for you to look at and to learn from. And all of the source code is organized and displayed in a convenient place: GitHub. The problem is that there is almost too much.</p>
+		<p class="entry-intro">Well, maybe not too much of everything, but the basics are repeated everywhere and finding out how to do the more complicated stuff is, well, complicated.</p>
+	</div>
+	
+</div>
+<p class="entry-heading">The Basics</p>
+<div class="row">
+	<div class="span16">
+		<p>There are really 4 main kinds of stuff can go in a Jekyll-based website. First there are the standard webpage resources: HTML, CSS, JavaScript, etc. Those can be standard HTML, or they can be tweaked with a special templating language. The second type is the Layout. Layouts just layout your information the way you want it. This is the real guts of the template. Next come the Includes. Includes are just snippets of HTML that you can include in the Layout or the base HTML. Finally, there are Posts. These are special files that represent blog posts. </p>
+		<p>There are actually a few other types of files like plugins, etc, but this article isn't going to go into that. What I am going to do is explain how I have organized my site and what my layouts look like. Is this the best way to do it? I don't know. Its just the way I have done it and maybe you might learn a thing or two from looking at my stuff.</p>
+	</div>
+</div>
+<p class="entry-heading">Index.html</p>
+<div class="row">
+	<div class="span16">
+		{% highlight html %}
+---
+layout: FrontPageLayout
+---
+{{"{% for thispost in site.posts limit:1 %"}}}
+{{"{%include PostInclude.html %"}}}
+{{"{% endfor %"}}}{%endhighlight%}
+	</div>
+</div>
+<div class="row">
+	<div class="span8">
+		<p>Even though this is my index.html page, it probably doesn't look any html you are used to. The first and third lines tell Jekyll that this is the YAML Front Matter for the page. This defines variables that can be used throughout the page. In it, I have told Jekyll to use the FrontPageLayout for laying out the page. Jekyll is going to look in the _layouts directory for FrontPageLayout.html.</p>
+		<p></p>
+	</div>
+</div>
+
+<p class="entry-heading">The BaseLayout</p>
+<div class="row">
+	<div class="span16">
+		{% highlight html %}
+<head>
+	<title>envl.pe {{"{% if page.title %"}}} - {{"{{page.title"}}}} {{"{%endif%"}}}</title>
+	<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/main.css" type="text/css" />
+	<link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+</head>
+<div class="container">
+	{{"{% include HeaderInclude.html %"}}}
+	
+	{{"{{content"}}}}
+	
+	{{"{% include FooterInclude.html %"}}}
+</div>{%endhighlight%}
+	</div>
+</div>
+<div class=row>
+	<div class="span8">
+		<p>Hopefully a lot of that looks familiar. At least the part that is standard HTML. As you can see I am using the Twitter Bootstrap framework for my grid (for the moment) and I have a couple other CSS files I am including as well. The <code>div</code> below that is just the container for the grid in Bootstrap.</p>
+		<p>Whats special is the stuff between the <code>{{"{{ "}}}}</code> and <code>{{"{% %"}}}</code>	brackets. Thats all of the logic of the Liquid Templating System using by Jekyll.</p>
+		<p>So that first line sets the title to envl.pe. Then it asks if <code>page.title</code> is defined. If it is, then include a dash and the page title. I could have replaced the if clause with a for loop, or assign, or unless, or lots of other things. For more on those options, check out <a href="https://github.com/shopify/liquid/wiki/liquid-for-designers">this page</a>.</p>
+		<p>The pages title is defined on the page that is using this layout.</p>
+	</div>
+</div>

@@ -20,3 +20,7 @@ pre{background-color:#ffffff;border:0;margin:0;}
 pre code{padding:1em !important;margin-left:-8px;color:#EEE;background:#333;display:block;font-size:14px !important;}
 p code{background:#FDFFD1;color:#666;font-size:14px;font-weight:500;text-shadow:0 1px 0 #FEFEFE;}
 code.bash .nv{-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-o-user-select:none;user-select:none;}
+.archive-row{border-bottom:1px dashed black;padding-top:10px;padding-bottom:10px;}
+.archive-date{color:#b00000;vertical-align:middle;font:small-caps 12px "Helvetica Neue",Arial,Helvetica,Geneva,sans-serif;}
+.archive-title{font:small-caps 14px "Helvetica Neue",Arial,Helvetica,Geneva,sans-serif;vertical-align:middle;}
+.archive-text{font:small-caps 14px "Helvetica Neue",Arial,Helvetica,Geneva,sans-serif;}

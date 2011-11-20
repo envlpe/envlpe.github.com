@@ -1,0 +1,24 @@
+---
+layout: FrontPageLayout
+---
+
+<div class="row">
+	<div class="span16">
+		<p>
+			The following is a list of all {{site.posts | size}} posts I have ever created on envl.pe since {{site.posts.last.date |date:"%B %d, %Y"}}
+		</p>
+	</div>
+</div>
+{% for thispost in site.posts %}
+<div class="row">
+	<div class="span12 archive-row">
+		<div class="row">
+		<div class="span2 archive-date">{{thispost.date| date:"%b %d, %Y"}}</div>
+		<div class="span3 archive-title"><a href="{{thispost.url}}">{{thispost.title}}</a></div>
+		<div class="span7 archive-text">{{thispost.excerpt}}</div>
+		</div>
+	</div>
+</div>
+{% endfor %}
+
+
